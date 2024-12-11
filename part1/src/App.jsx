@@ -1,34 +1,71 @@
 
 
 
-import './App.css'
-
-const Hello = (props) => {
+const Header = (props) => {
   console.log(props)
-  return (
+  return(
     <div>
-      <p>Hello {props.name} tienes {props.age}</p>
+      <h1>{props.course}</h1>
     </div>
   )
 }
 
-const App = () => {
-  const friends = [
-    {name: 'Peter' , age :4},
-    {name: 'Juan' , age :1},
+const Part = () => {
+  const tareas =[
+    {part1 : 'Fundamentals of React', exercises1: 10},
+    {part2: 'Using props to pass data', exercises2: 7},
+    {part3: 'State of a component', exercises3: 14}
   ]
-  const names =['Jose', 'Luis']
-  console.log(friends)
+   return(
+    <div>
+      <p>{tareas[0].part1} = {tareas[0].exercises1}</p>
+      <p>{tareas[1].part2} = {tareas[1].exercises2}</p>
+      <p>{tareas[2].part3} = {tareas[2].exercises3}</p>
+    </div>
+   )
+}
+
+const Content = (props) => {
+  console.log(props)
+  
+  
+  return(
+    <div>
+      <Part />
+    </div>
+  )
+}
+
+const Total = () => {
+  const exercises1 = 10
+ 
+    const exercises2 = 7
+ 
+    const exercises3 = 14
+  return(
+    <div>
+      <p> Total of exercises : {exercises1 + exercises2 +exercises3}</p>
+    </div>
+  )
+}
+
+
+
+const App = () => {
+
+ 
+  const course = 'Half Stack application development'
+  
+ 
+
   return (
     <>
-    
-      <h1>Holaa</h1>
-      <p>{friends[0].name} {friends[0].age}</p>
-      <p>{friends[1].name} {friends[1].age}</p>
-      <p>{names}</p>
-      <Hello name= "Deisy" age={23 + 10}/>
+      <Header course={course}/>
+      <Content />
+      <Total/>
     </>
   )
 }
+
 
 export default App
